@@ -1,6 +1,6 @@
 # Nintendo-WFC
 
-A small Sinatra application to enable or disable the hostapd systemctl service. I use this to start a WEP secured WiFi network so I can play Nintendo DS games online using [Kaeru](kaeru).
+A small Sinatra application to enable or disable the hostapd systemctl service. I use this to start a WEP secured WiFi network so I can play Nintendo DS games online using [Kaeru](https://kaeru.world/projects/wfc).
 
 ## Requirements
 
@@ -15,5 +15,3 @@ Then run `bundle install` and then `bin/dev`. You can also build the docker imag
  - [ ] Read the hostapd config for the network name
  - [ ] Add a small API to get the status and enable or disable hostapd
  - [ ] Improve the UI
-
-[kaeru]: https://kaeru.world/projects/wfc
