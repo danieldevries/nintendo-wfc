@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title hostapd
+  %body
+    %h1 hostapd
+    %h2= @service.status
+
+    %form(action="/toggle" method="post")
+      %button= @service.active? ? :disable : :enable
+
+    %hr
+
+    %table
+      - @service.properties.each do |key, value|
+        %tr
+          %td= key
+          %td= value
+
