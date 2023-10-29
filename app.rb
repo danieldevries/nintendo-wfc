@@ -11,21 +11,22 @@ module Hostapd
       register Sinatra::Reloader
     end
 
-    def service
-      @service ||= Hostapd::Service.new
+    def hostapd_config_path
+      ENV.fetch('HOSTAPD_CONFIG') { Hostapd::Config::PATH }
     end
 
     get '/' do
-      @service = service
+      @service = Hostapd::Service.new
+      @config = Hostapd::Config.new(hostapd_config_path)
 
       haml :layout
     end
 
     post '/toggle' do
-      service.active? ? service.stop! : service.start!
+      @service = Hostapd::Service.new
+      @service.active? ? @service.stop! : @service.start!
 
       redirect '/'
     end
   end
 end
-
