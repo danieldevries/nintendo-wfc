@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= @config.ssid %>
+    </title>
+  </head>
+  <body>
+    <h1><%= @config.ssid %></h1>
+    <h2><%= @service.status %></h2>
+
+    <form action="/toggle" method="post">
+      <button>
+        <%= @service.active? ? :disable : :enable %>
+      </button>
+    </form>
+
+    <hr>
+
+    <h3>hostapd config</h3>
+    <table>
+      <% @config.config.each do |key, value| %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value %></td>
+        <tr>
+      <% end %>
+    </table>
+
+    <hr>
+
+    <h3>service</h3>
+    <table>
+      <% @service.properties.each do |key, value| %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  </body>
+</html>

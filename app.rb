@@ -19,7 +19,7 @@ module Hostapd
       @service = Hostapd::Service.new
       @config = Hostapd::Config.new(hostapd_config_path)
 
-      haml :layout
+      erb :layout
     end
 
     post '/toggle' do

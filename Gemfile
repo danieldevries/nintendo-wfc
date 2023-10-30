@@ -6,6 +6,5 @@ gem 'dbus-systemd'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'haml'
 
 gem 'puma', '~> 6.4'
